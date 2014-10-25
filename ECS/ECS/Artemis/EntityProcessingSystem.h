@@ -4,7 +4,8 @@
 #include "ImmutableBag.h"
 #include "EntitySystem.h"
 
-namespace artemis {
+namespace artemis
+{
     
     class Entity;
     /**

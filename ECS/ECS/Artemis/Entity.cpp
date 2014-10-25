@@ -7,7 +7,7 @@ using namespace std;
 
 namespace artemis
 {
-    Entity::Entity(World * world, int id)
+    Entity::Entity(World *world, int id)
     {
         this->world = world;
         this->entityManager = world->getEntityManager();

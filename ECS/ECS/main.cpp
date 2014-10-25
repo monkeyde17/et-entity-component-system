@@ -26,7 +26,6 @@ public:
 
 class PositionComponent : public artemis::Component
 {
-    
 public:
     float posX;
     float posY;
@@ -91,7 +90,7 @@ int main(int argc, char **argv)
         std::cout << "X:"<< comp->posX << std::endl;
         std::cout << "Y:"<< comp->posY << std::endl;
     
-        sleep(160);
+        sleep(0.160);
     }
     
     return 0;

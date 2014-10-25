@@ -1,7 +1,7 @@
 #include "EntityProcessingSystem.h"
 
-namespace artemis {
-	
+namespace artemis
+{
 	bool EntityProcessingSystem::checkProcessing()
     {
 		return true;
