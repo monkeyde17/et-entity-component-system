@@ -24,9 +24,6 @@ namespace artemis
     /* 给新Entity分配BitId */
     std::bitset<BITSIZE> & SystemBitManager::getBitFor(const std::type_info & type)
     {
-        
-        //assert((std::is_base_of< EntitySystem, system >::value == true));
-        
         std::bitset<BITSIZE> * bit = systemBits[&type];
         
         if(bit == NULL)

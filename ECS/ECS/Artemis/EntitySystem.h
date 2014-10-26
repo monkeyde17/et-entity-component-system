@@ -20,9 +20,8 @@ namespace artemis
     class World;
     
     /**
-     * The most raw entity system. It should not typically be used, but you can create your own
-     * entity system handling by extending this. It is recommended that you use the other provided
-     * entity system implementations.
+     * 基础实体管理类
+     * 还是继承过来实现自己的实体系统管理类
      */
     class EntitySystem
     {
@@ -39,7 +38,8 @@ namespace artemis
         void process();
         int getEntityCount();
         
-        /* override these functions */
+        /* 初始化函数 */
+        /* 会在系统管理类中调用 */
         virtual void initialize() {};
         
     protected:
@@ -55,13 +55,11 @@ namespace artemis
             typeFlags |= ComponentTypeManager::getBit<component_type>();
         }
         
-        /* override these functions */
         virtual void begin() {};
         virtual void end() {};
         virtual void removed(Entity &e) {};
         virtual void added(Entity &e) {};
         
-        //Abstracts
         virtual void processEntities(ImmutableBag<Entity*> & bag) = 0;
         virtual bool checkProcessing() = 0;
         

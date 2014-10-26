@@ -26,7 +26,7 @@ namespace artemis
         
         if(type.getId() >= componentsByType.getCapacity())
         {
-            //Resize
+            /* 增加大小 */
             componentsByType.set(type.getId(), NULL);
         }
         

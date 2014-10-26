@@ -5,7 +5,6 @@ namespace artemis {
     
     TagManager::TagManager()
     {
-        //this->world = &world;
     }
     
     Entity& TagManager::getEntity(const std::string tag)
@@ -20,7 +19,6 @@ namespace artemis {
     
     void TagManager::remove(Entity &e)
     {
-        // TODO find cleaner way to remove by value
         std::map<std::string, Entity*>::iterator it;
         for (it = tagByEntity.begin(); it != tagByEntity.end(); ++it)
         {

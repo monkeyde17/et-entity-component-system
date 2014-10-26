@@ -13,6 +13,7 @@ namespace artemis
     class Entity;
     class World;
     
+    /* 系统管理类 */
     class SystemManager
     {
     public:

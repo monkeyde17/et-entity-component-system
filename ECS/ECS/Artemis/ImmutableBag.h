@@ -16,6 +16,7 @@ namespace artemis
         virtual ~ImmutableBag(){};
     };
     
+    /* 容器，动态数组，将类实体打包 */
     template<typename E>
     class Bag : public ImmutableBag<E>
     {
@@ -31,14 +32,11 @@ namespace artemis
         };
         
         /**
-         *  If set is used, the bag might
-         *  contain gaps between indexes. Use this to get a
-         *  complete bag. No changes will be made to the original bag.
+         * 有可能这个包中有空隙，所以需要去除空隙
          */
         Bag<E> * getGapless()
         {
             Bag<E> * bag = new Bag<E>(this->count);
-            //int c = 0;
             for(int i=0; i < this->size; i++)
             {
                 if(this->data[i] != NULL)
@@ -50,15 +48,11 @@ namespace artemis
         }
         
         /**
-         * Adds an object to the bag.
-         * Mixing add and set is not encouraged.
-         * Note: set can create gaps between indexes where
-         * the object count is irrelevant to the order.
-         *
-         * Autmatically grows the bag if necessary.
-         *
-         * @param o The object to be added.
-         **/
+         * 添加实体对象到包中
+         * 不要混用add和set，有可能会让包产生空隙
+         * 
+         * 当空间不够的时候，包会自动扩大空间。
+         */
         void add(E o)
         {
             if(size == count)grow();
@@ -66,8 +60,8 @@ namespace artemis
             data[count++] = o;
         };
         
-        void addAll(Bag<E> & bag) {
-            
+        void addAll(Bag<E> & bag)
+        {
             for(int i=0; i < bag.size ; i++)
             {
                 add(bag.data[i]);
@@ -75,7 +69,7 @@ namespace artemis
         };
         
         /**
-         * Sets every pointer to NULLs. Does not delete data.
+         * 将所有集合置空，并不释放内存
          */
         void clear()
         {
@@ -103,10 +97,6 @@ namespace artemis
         
         virtual int getCapacity() {return size;};
         virtual bool isEmpty() {return count == 0;};
-        /**
-         * Returns the amount of objects in the bag.
-         *
-         **/
         virtual int getCount() {return count;};
         
         bool remove(E o)
@@ -164,7 +154,6 @@ namespace artemis
         
         bool set(int index, E o)
         {
-            
             if(index >= size) grow(index*2);
             
             if(o == NULL && data[index] != NULL)
@@ -187,7 +176,6 @@ namespace artemis
         
         void deleteData()
         {
-            
             for(int i=0; i<size; i++)
             {
                 delete data[i];
@@ -208,6 +196,7 @@ namespace artemis
             grow(newCapacity);
         };
         
+        /* 申请增加的空间 */
         void grow(int newCapacity)
         {
             E* newData = new E[newCapacity];

@@ -12,6 +12,7 @@
 
 #include <typeinfo>
 
+/* 用于map的比较函数 */
 struct type_info_comparator
 {
     bool operator ()(const std::type_info* a, const std::type_info* b) const

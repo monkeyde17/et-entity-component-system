@@ -10,7 +10,7 @@ namespace artemis
 {
     World::World()
     {
-        //TODO add more managers
+        /* 这些管理类，其实可以做成单例的 */
         this->systemManager = new SystemManager(*this);
         this->entityManager = new EntityManager(*this);
         this->groupManager = new GroupManager();
@@ -96,7 +96,6 @@ namespace artemis
     
     World::~World()
     {
-        //Entity manager should be deleted first.
         refreshed.clear();
         deleted.clear();
         

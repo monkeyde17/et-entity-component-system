@@ -8,10 +8,10 @@ namespace artemis
 {
     
     class Entity;
+    
     /**
      * @brief 实体系统
      */
-    
     class EntityProcessingSystem : public EntitySystem
     {
     protected:

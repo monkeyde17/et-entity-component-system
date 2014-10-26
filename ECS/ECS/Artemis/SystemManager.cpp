@@ -29,7 +29,7 @@ namespace artemis
         bool bitFlag = false;
         int index = 0;
         
-        //Check if system is known.
+        /* 检查系统是否存在 */
         for(int i=0; i< bagged.getCount(); i++)
         {
             if(typeid(*stm) == typeid(*bagged.get(i)))
@@ -39,19 +39,17 @@ namespace artemis
             }
         }
         
-        //Check if stm pointer doesn't point to an existing system
-        //Else add system to manager
+        /* 若系统存在，则检查是否该系统和要设置的系统是同一个 */
         if(bagged.get(index) != stm)
         {
-            //If it doesn't point to an existing system
-            //Check if the new system is already known
+            /* 若系统已经存在，则释放要设置的系统 */
             if(bitFlag)
             {
-                //Delete newly made system.
                 delete stm;
-                //Point to existing system in bag.
+                /* 将已存在的系统返回 */
                 stm = bagged.get(index);
             }
+            /* 系统不存在，则添加系统到系统管理中 */
             else
             {
                 stm->setWorld(world);

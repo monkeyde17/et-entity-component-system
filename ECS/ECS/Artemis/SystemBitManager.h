@@ -22,7 +22,6 @@ namespace artemis
         template<typename system>
         static std::bitset<BITSIZE> & getBitFor()
         {
-            //assert((std::is_base_of< EntitySystem, system >::value == true));
             return getBitFor(typeid(system));
         }
         

@@ -7,17 +7,14 @@
 
 namespace artemis
 {
-    //class World;
     class Entity;
     
     /**
-     * If you need to tag any entity, use this. A typical usage would be to tag
-     * entities such as "PLAYER", "BOSS" or something that is very unique.
+     * 为实体打上标签，例如"Boss"
      */
     class TagManager
     {
     public:
-        //TagManager(World &world);
         TagManager();
         void subscribe(const std::string tag, Entity &e);
         void unSubscribe(const std::string tag);
@@ -26,7 +23,6 @@ namespace artemis
         void remove(Entity &e);
         
     private:
-        //World * world;
         std::map<std::string, Entity*> tagByEntity;
     };
 };
