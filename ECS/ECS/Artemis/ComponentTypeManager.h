@@ -47,7 +47,6 @@ namespace artemis
         
     private:
         /* 类变量 */
-        /* 根据类的继承顺序排序 */
         static std::map<const std::type_info*,ComponentType*,
         type_info_comparator> componentTypes;
     };
