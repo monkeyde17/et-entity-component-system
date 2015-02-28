@@ -17,6 +17,7 @@ struct type_info_comparator
 {
     bool operator ()(const std::type_info* a, const std::type_info* b) const
     {
+        /* 判断类型a是否是在类b之前定义*/
         return a->before(*b);
     }
 };

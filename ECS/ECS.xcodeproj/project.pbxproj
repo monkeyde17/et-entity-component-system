@@ -334,6 +334,7 @@
 				E889E34819FBF1F300C3B1DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
